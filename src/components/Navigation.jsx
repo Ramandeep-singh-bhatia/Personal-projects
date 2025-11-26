@@ -7,7 +7,8 @@ const Navigation = () => {
     { id: 'input', label: 'Translate', icon: '✍️' },
     { id: 'library', label: 'Library', icon: '📚', badge: savedSongs.length },
     { id: 'timeline', label: 'Timeline', icon: '📅' },
-    { id: 'suggestions', label: 'Suggestions', icon: '💡' }
+    { id: 'suggestions', label: 'Suggestions', icon: '💡' },
+    { id: 'settings', label: 'Settings', icon: '⚙️' }
   ];
 
   return (

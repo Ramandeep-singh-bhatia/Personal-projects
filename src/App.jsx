@@ -6,6 +6,7 @@ import TranslationDisplay from './components/TranslationDisplay';
 import Library from './components/Library';
 import Timeline from './components/Timeline';
 import Suggestions from './components/Suggestions';
+import Settings from './components/Settings';
 import './index.css';
 
 const AppContent = () => {
@@ -54,6 +55,9 @@ const AppContent = () => {
 
         {/* Suggestions View */}
         {currentView === 'suggestions' && <Suggestions />}
+
+        {/* Settings View */}
+        {currentView === 'settings' && <Settings />}
       </main>
 
       {/* Footer */}
