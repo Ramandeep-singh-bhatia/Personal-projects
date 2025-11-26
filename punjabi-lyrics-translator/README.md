@@ -42,12 +42,36 @@ cd punjabi-lyrics-translator
 npm install
 ```
 
-3. Start the development server:
+3. **Configure API Key** (Required for translations):
 ```bash
+# Copy the example env file
+cp .env.example .env
+
+# Edit .env and add your Claude API key
+# CLAUDE_API_KEY=sk-ant-your-actual-key-here
+```
+
+Get your API key from [Anthropic Console](https://console.anthropic.com/settings/keys)
+
+4. **Start both servers** (backend proxy + frontend):
+```bash
+npm start
+```
+
+This will start:
+- Backend proxy server on `http://localhost:3001`
+- Frontend dev server on `http://localhost:5173`
+
+Or run them separately:
+```bash
+# Terminal 1: Start backend proxy
+npm run server
+
+# Terminal 2: Start frontend
 npm run dev
 ```
 
-4. Open your browser and navigate to `http://localhost:5173`
+5. Open your browser and navigate to `http://localhost:5173`
 
 ### Build for Production
 
