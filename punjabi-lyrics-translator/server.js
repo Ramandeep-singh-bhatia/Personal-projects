@@ -8,6 +8,12 @@ dotenv.config();
 const app = express();
 const PORT = 3001;
 
+// Debug: Check if API key is loaded
+console.log('🔑 API Key loaded:', process.env.CLAUDE_API_KEY ? 'YES ✅' : 'NO ❌');
+if (process.env.CLAUDE_API_KEY) {
+  console.log('🔑 API Key starts with:', process.env.CLAUDE_API_KEY.substring(0, 10) + '...');
+}
+
 app.use(cors());
 app.use(express.json());
 
