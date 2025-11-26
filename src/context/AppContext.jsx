@@ -13,16 +13,42 @@ export const useApp = () => {
 
 export const AppProvider = ({ children }) => {
   const [savedSongs, setSavedSongs] = useState([]);
-  const [currentView, setCurrentView] = useState('input'); // 'input', 'library', 'timeline'
+  const [currentView, setCurrentView] = useState('input'); // 'input', 'library', 'timeline', 'suggestions', 'settings'
   const [selectedSong, setSelectedSong] = useState(null);
   const [apiKey, setApiKey] = useState('');
   const [lyricsApiUrl, setLyricsApiUrl] = useState('https://api.lyrics.ovh/v1');
 
-  // Load saved songs on mount
+  // Load saved songs and settings on mount
   useEffect(() => {
     const songs = getSavedSongs();
     setSavedSongs(songs);
+
+    // Load API key from localStorage
+    const savedApiKey = localStorage.getItem('claude_api_key');
+    if (savedApiKey) {
+      setApiKey(savedApiKey);
+    }
+
+    // Load lyrics API URL from localStorage
+    const savedLyricsApi = localStorage.getItem('lyrics_api_url');
+    if (savedLyricsApi) {
+      setLyricsApiUrl(savedLyricsApi);
+    }
   }, []);
+
+  // Save API key to localStorage when it changes
+  useEffect(() => {
+    if (apiKey) {
+      localStorage.setItem('claude_api_key', apiKey);
+    }
+  }, [apiKey]);
+
+  // Save lyrics API URL to localStorage when it changes
+  useEffect(() => {
+    if (lyricsApiUrl) {
+      localStorage.setItem('lyrics_api_url', lyricsApiUrl);
+    }
+  }, [lyricsApiUrl]);
 
   // Save a new song
   const handleSaveSong = (song) => {
