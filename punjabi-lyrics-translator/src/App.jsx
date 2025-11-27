@@ -29,10 +29,10 @@ const AppContent = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
       <Navigation />
 
-      <main className="py-8">
+      <main>
         {/* Input/Translation View */}
         {currentView === 'input' && (
           <LyricsInput onTranslationComplete={handleTranslationComplete} />
