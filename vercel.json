@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd punjabi-lyrics-translator && npm run build",
+  "outputDirectory": "punjabi-lyrics-translator/dist",
+  "installCommand": "cd punjabi-lyrics-translator && npm install"
+}
